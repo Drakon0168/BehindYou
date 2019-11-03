@@ -50,6 +50,8 @@ public class Player : PhysicsObject
     private ParticleSystem smokeParticles;
     [SerializeField]
     private ParticleSystem sparkParticles;
+    [SerializeField]
+    private ParticleSystem stunParticles;
 
     #region Properties
 
@@ -185,6 +187,7 @@ public class Player : PhysicsObject
         if(stunned && timers[(int)PlayerTimers.StunTimer] >= timerDurations[(int)PlayerTimers.StunTimer])
         {
             stunned = false;
+            stunParticles.Stop();
         }
 
         if(boosting && timers[(int)PlayerTimers.BoostDuration] >= timerDurations[(int)PlayerTimers.BoostDuration])
@@ -286,6 +289,7 @@ public class Player : PhysicsObject
         timerDurations[(int)PlayerTimers.StunTimer] = duration;
         timers[(int)PlayerTimers.StunTimer] = 0;
         stunned = true;
+        stunParticles.Play();
     }
 
     /// <summary>

@@ -7,6 +7,11 @@ public class StunProjectile : Projectile
     [SerializeField]
     public float stunDuration;
 
+    protected override void Update()
+    {
+        base.Update();
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         Player other = collision.GetComponent<Player>();

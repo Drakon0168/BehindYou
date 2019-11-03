@@ -35,19 +35,6 @@ public class CameraController : MonoBehaviour
 
         float targetOrthographicSize = 0.0f;
 
-        /*if (Mathf.Abs(playerDistance.x) > Mathf.Abs(playerDistance.y))
-        {
-            //-200 for the Player Stats UI elements
-            float mult = (float)(camera.pixelHeight - 200) / (float)camera.pixelWidth;
-            targetOrthographicSize = mult * (playerDistance.x / 2);
-
-            Debug.Log("Mult: " + mult + ", Height: " + camera.pixelHeight + ", Width: " + camera.pixelWidth);
-        }
-        else
-        {
-            targetOrthographicSize = playerDistance.y / 2;
-        }*/
-
         targetOrthographicSize = playerDistance.magnitude / 2;
 
         if(targetOrthographicSize < minSize)
