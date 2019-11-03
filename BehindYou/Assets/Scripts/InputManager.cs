@@ -22,6 +22,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
     private Dictionary<string, KeyCode> keys;
+    private int controllerCount;
 
     [SerializeField]
     private Player playerOne;
@@ -49,13 +50,28 @@ public class InputManager : MonoBehaviour
         keys.Add("LeftMouse", KeyCode.Mouse0);
         keys.Add("RightMouse", KeyCode.Mouse1);
 
+        controllerCount = Input.GetJoystickNames().Length;
+
         UpdateInputSources();
+    }
 
-        string[] connectedControllers = Input.GetJoystickNames();
+    private void Update()
+    {
+        int currentControllers = 0;
+        string[] attatchedControllers = Input.GetJoystickNames();
 
-        for(int i = 0; i < connectedControllers.Length; i++)
+        for (int i = 0; i < attatchedControllers.Length; i++)
         {
-            Debug.Log("Controller " + i + ": " + connectedControllers[i]);
+            if(attatchedControllers[i] != "")
+            {
+                currentControllers++;
+            }
+        }
+
+        if(currentControllers != controllerCount)
+        {
+            controllerCount = currentControllers;
+            UpdateInputSources();
         }
     }
 
@@ -64,8 +80,40 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void UpdateInputSources()
     {
-        playerOne.controls = setKeyboardControls();
-        playerTwo.controls = setControllerControls(1);
+        string controllers = "";
+        string[] attatchedControllers = Input.GetJoystickNames();
+
+        for(int i = 0; i < attatchedControllers.Length; i++)
+        {
+            controllers += "Controller " + i + ": " + attatchedControllers[i] + "\n";
+        }
+
+        Debug.Log(controllers);
+
+        switch (controllerCount)
+        {
+            case 0:
+                playerOne.controls = setKeyboardControls();
+                playerTwo.controls = setKeyboardControls();
+                break;
+            case 1:
+                playerOne.controls = setKeyboardControls();
+
+                if(attatchedControllers[0] == "")
+                {
+                    playerTwo.controls = setControllerControls(2);
+                }
+                else
+                {
+                    playerTwo.controls = setControllerControls(1);
+                }
+
+                break;
+            default:
+                playerOne.controls = setControllerControls(2);
+                playerTwo.controls = setControllerControls(1);
+                break;
+        }
     }
 
     /// <summary>
@@ -241,7 +289,7 @@ public class InputManager : MonoBehaviour
     /// <summary>
     /// Sets up a control object for gamepad controls
     /// </summary>
-    /// <param name="controls">The controls to set</param>
+    /// <param name="controls">The controller to set</param>
     public playerControls setControllerControls(int controller)
     {
         playerControls controls = new playerControls();
