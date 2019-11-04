@@ -66,6 +66,11 @@ public class Player : PhysicsObject
     public Weapon Weapon { get { return weapon; } }
 
     /// <summary>
+    /// Whether or not the player is currently boosting
+    /// </summary>
+    public bool IsBoosting { get { return boosting; } }
+
+    /// <summary>
     /// The charge progress of the booster
     /// </summary>
     public float BoosterCharge

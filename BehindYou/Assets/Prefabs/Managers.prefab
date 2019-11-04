@@ -508,6 +508,126 @@ PrefabInstance:
       propertyPath: lethalityImage
       value: 
       objectReference: {fileID: 5111031020462167266}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key1.g
+      value: 0.49700117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.g
+      value: 0.7956173
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.b
+      value: 0.0078431135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key3.r
+      value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime1
+      value: 11758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime2
+      value: 38743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime3
+      value: 56476
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.m_NumColorKeys
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.g
+      value: 0.41573176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.g
+      value: 0.00000009536744
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key2.r
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key2.g
+      value: 0.050729804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key2.b
+      value: 0.07018053
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime1
+      value: 16384
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.m_NumColorKeys
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3b491a30f81ba49b2773066edc8d2c, type: 3}
 --- !u!4 &3922615916097344861 stripped
@@ -685,6 +805,121 @@ PrefabInstance:
       propertyPath: lethalityImage
       value: 
       objectReference: {fileID: 7618136667090819469}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.r
+      value: 0.19802408
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.g
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key2.b
+      value: 0.008632986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key3.g
+      value: 0.13786305
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.key3.b
+      value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime1
+      value: 11758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime2
+      value: 38743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime3
+      value: 56476
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.ctime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: boostTrail.m_NumColorKeys
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.g
+      value: 0.44370317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.r
+      value: 0.10822357
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key0.b
+      value: 0.26041296
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key2.g
+      value: 0.1090486
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.key2.b
+      value: 0.4245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime1
+      value: 13300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180289441219972244, guid: aa3b491a30f81ba49b2773066edc8d2c,
+        type: 3}
+      propertyPath: normalTrail.m_NumColorKeys
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3b491a30f81ba49b2773066edc8d2c, type: 3}
 --- !u!4 &6953852638364967623 stripped
