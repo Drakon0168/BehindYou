@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5143c20d0161e40b7f2b9ecad11ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flightSpeed: 25
+  flightSpeed: 50
   lifeTime: 5
   stunDuration: 2
 --- !u!96 &5898348191821994409

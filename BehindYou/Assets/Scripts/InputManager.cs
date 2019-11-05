@@ -88,7 +88,7 @@ public class InputManager : MonoBehaviour
             controllers += "Controller " + i + ": " + attatchedControllers[i] + "\n";
         }
 
-        Debug.Log(controllers);
+        //Debug.Log(controllers);
 
         switch (controllerCount)
         {

@@ -34,7 +34,6 @@ public class PhysicsObject : MonoBehaviour
     protected virtual void Update()
     {
         Velocity += acceleration * Time.deltaTime;
-        Position += Velocity * Time.deltaTime;
         acceleration = Vector2.zero;
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : PhysicsObject
 {
@@ -154,6 +155,8 @@ public class Player : PhysicsObject
 
     #endregion
 
+    #region Unity Functions
+
     protected override void Awake()
     {
         base.Awake();
@@ -209,54 +212,27 @@ public class Player : PhysicsObject
 
         if (InputManager.Instance.GetInput(controls.boost) && BoosterCharge >= 1)
         {
-            boosting = true;
-            boostTrail.emitting = true;
-            timers[(int)PlayerTimers.BoostDuration] = 0;
+            Boost();
         }
-
-        MoveInput();
-        AimInput();
 
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg - 90);
 
         base.Update();
     }
 
+    #endregion
+
+    #region Input Management
+
     /// <summary>
     /// Handles input for player movement
     /// </summary>
-    private void MoveInput()
+    public void MoveInput(InputAction.CallbackContext value)
     {
-        Vector2 targetDirection = Vector2.zero;
+        Vector2 targetDirection = value.ReadValue<Vector2>();
 
-        if (!stunned && !dying)
-        {
-            if (controls.axisMovement)
-            {
-                targetDirection = InputManager.Instance.GetDirection(controls.moveAxis, this);
-            }
-            else
-            {
-                if (InputManager.Instance.GetInput(controls.moveUp))
-                {
-                    targetDirection += Vector2.up;
-                }
+        //Debug.Log("Movement: (" + targetDirection.x + ", " + targetDirection.y + ")");
 
-                if (InputManager.Instance.GetInput(controls.moveDown))
-                {
-                    targetDirection += Vector2.down;
-                }
-                if (InputManager.Instance.GetInput(controls.moveLeft))
-                {
-                    targetDirection += Vector2.left;
-                }
-                if (InputManager.Instance.GetInput(controls.moveRight))
-                {
-                    targetDirection += Vector2.right;
-                }
-            }
-        }
-        
         Vector2 moveDirection = (targetDirection.normalized * CurrentSpeed) - Velocity;
         float moveDistance = moveDirection.magnitude;
 
@@ -271,9 +247,9 @@ public class Player : PhysicsObject
     /// <summary>
     /// Handles input for player aiming
     /// </summary>
-    private void AimInput()
+    public void AimInput(InputAction.CallbackContext value)
     {
-        Vector2 aimDirection = InputManager.Instance.GetDirection(controls.aim, this);
+        Vector2 aimDirection = value.ReadValue<Vector2>();
 
         if(aimDirection == Vector2.zero)
         {
@@ -284,6 +260,10 @@ public class Player : PhysicsObject
 
         cursor.transform.position = Position + (aimDirection * RETICLE_RANGE);
     }
+
+    #endregion
+
+    #region Status
 
     /// <summary>
     /// Stuns the player for a set amount of time
@@ -330,6 +310,10 @@ public class Player : PhysicsObject
         dying = false;
     }
 
+    #endregion
+
+    #region Actions
+
     /// <summary>
     /// Shoots a bullet in the specified direction
     /// </summary>
@@ -350,6 +334,20 @@ public class Player : PhysicsObject
     }
 
     /// <summary>
+    /// Initiates a boost
+    /// </summary>
+    public void Boost()
+    {
+        boosting = true;
+        boostTrail.emitting = true;
+        timers[(int)PlayerTimers.BoostDuration] = 0;
+    }
+
+    #endregion
+
+    #region Helper Functions
+
+    /// <summary>
     /// Turns the particle systems on
     /// </summary>
     public void StartDeathParticles()
@@ -366,4 +364,6 @@ public class Player : PhysicsObject
         smokeParticles.Stop();
         sparkParticles.Stop();
     }
+
+    #endregion
 }
