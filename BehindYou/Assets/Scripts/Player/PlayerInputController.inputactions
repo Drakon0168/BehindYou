@@ -10,7 +10,7 @@
                     "type": "PassThrough",
                     "id": "b12b8c07-0f5e-4dee-884d-f452a11c86a2",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": ""
                 },
                 {
@@ -63,7 +63,7 @@
                     "id": "c2a164d5-692c-43f7-8f29-35df260cc65c",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "NormalizeVector2",
+                    "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
@@ -118,7 +118,7 @@
                     "id": "4dce16bf-14de-4242-a6bb-7b04dce7729e",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "Gamepad",
                     "action": "Aim",
                     "isComposite": false,

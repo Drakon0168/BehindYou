@@ -29,9 +29,6 @@ public class Player : PhysicsObject
     private Vector2 aimDirection;
     private bool boostInput;
     private bool shootInput;
-    
-    [HideInInspector]
-    public playerControls controls;
 
     [Header("Stats")]
     [SerializeField]
