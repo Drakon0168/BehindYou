@@ -27,6 +27,8 @@ public class Player : PhysicsObject
 
     private Vector2 moveDirection;
     private Vector2 aimDirection;
+    private bool boostInput;
+    private bool shootInput;
     
     [HideInInspector]
     public playerControls controls;
@@ -208,22 +210,22 @@ public class Player : PhysicsObject
             timers[(int)PlayerTimers.BoosterCooldown] = 0;
         }
 
-        if (InputManager.Instance.GetInput(controls.shoot) && StunCharge >= 1)
-        {
-            Shoot(stunProjectile);
-        }
-
-        if (InputManager.Instance.GetInput(controls.boost) && BoosterCharge >= 1)
+        if(BoosterCharge >= 1 && boostInput)
         {
             Boost();
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg - 90);
+        if(StunCharge >= 1 && shootInput)
+        {
+            Shoot(stunProjectile);
+        }
 
         UpdateMovement();
         UpdateAim();
 
         base.Update();
+
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg - 90);
     }
 
     #endregion
@@ -274,10 +276,13 @@ public class Player : PhysicsObject
     /// </summary>
     public void ShootInput(InputAction.CallbackContext value)
     {
-        if(StunCharge >= 1)
+        if(value.ReadValue<float>() != 0)
         {
-            Debug.Log("Shooting!");
-            //Shoot(stunProjectile);
+            shootInput = true;
+        }
+        else
+        {
+            shootInput = false;
         }
     }
 
@@ -286,9 +291,13 @@ public class Player : PhysicsObject
     /// </summary>
     public void BoostInput(InputAction.CallbackContext value)
     {
-        if(BoosterCharge >= 1)
+        if(value.ReadValue<float>() != 0)
         {
-            Debug.Log("Boosting!");
+            boostInput = true;
+        }
+        else
+        {
+            boostInput = false;
         }
     }
 

@@ -237,5 +237,10 @@ PrefabInstance:
       propertyPath: m_VertexStreams.Array.data[2]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2944141556166653851, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Gamepad
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b6c7440e905dd4cb957b8a7513a02d, type: 3}
