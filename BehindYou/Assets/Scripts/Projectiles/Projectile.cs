@@ -8,6 +8,13 @@ public class Projectile : PhysicsObject
     private float flightSpeed;
     [SerializeField]
     private float lifeTime;
+    [SerializeField, Tooltip("How fast the projectile can turn in degrees per second")]
+    private float seekForce;
+    [SerializeField]
+    private float seekDistance;
+
+    [HideInInspector]
+    public Transform target;
 
     private Vector2 direction;
 
@@ -28,9 +35,19 @@ public class Projectile : PhysicsObject
         Destroy(gameObject, lifeTime);
     }
 
-    protected override void Update()
+    private void Start()
     {
         Velocity = direction * flightSpeed;
+    }
+
+    protected override void Update()
+    {
+        Vector2 distance = target.position - transform.position;
+
+        if(distance.magnitude <= seekDistance)
+        {
+            SeekTarget(distance.normalized);
+        }
 
         base.Update();
     }
@@ -38,5 +55,27 @@ public class Projectile : PhysicsObject
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
+    }
+
+    private void SeekTarget(Vector2 targetDirection)
+    {
+        Debug.Log("Seeking " + target.name);
+
+        Vector2 targetVelocity = targetDirection * flightSpeed;
+
+        Vector2 force = targetVelocity - Velocity;
+        float forceDistance = force.magnitude;
+
+        if (forceDistance > 0)
+        {
+            force = (force / forceDistance) * (forceDistance / (2 * seekDistance)) * seekForce;
+        }
+
+        ApplyForce(force);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, seekDistance);
     }
 }

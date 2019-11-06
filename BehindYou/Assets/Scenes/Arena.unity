@@ -192,11 +192,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7829915274130762521, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: cameraZoomSpeed
-      value: 5.05
-      objectReference: {fileID: 0}
     - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
       propertyPath: m_VertexStreams.Array.size

@@ -47,6 +47,8 @@ public class Player : PhysicsObject
     private GameObject cursor;
     [SerializeField]
     private GameObject stunProjectile;
+    [SerializeField]
+    private Player other;
     [Space]
     [Header("Particles")]
     [SerializeField]
@@ -207,12 +209,12 @@ public class Player : PhysicsObject
             timers[(int)PlayerTimers.BoosterCooldown] = 0;
         }
 
-        if(BoosterCharge >= 1 && boostInput)
+        if(BoosterCharge >= 1 && boostInput && !dying && !stunned)
         {
             Boost();
         }
 
-        if(StunCharge >= 1 && shootInput)
+        if(StunCharge >= 1 && shootInput && !dying)
         {
             Shoot(stunProjectile);
         }
@@ -267,7 +269,7 @@ public class Player : PhysicsObject
     {
         moveDirection = value.ReadValue<Vector2>();
 
-        if (stunned)
+        if (stunned || dying)
         {
             moveDirection = Vector2.zero;
         }
@@ -387,6 +389,11 @@ public class Player : PhysicsObject
     {
         Projectile bullet = Instantiate(projectile, transform.position + ((cursor.transform.position - transform.position) / RETICLE_RANGE), Quaternion.identity).GetComponent<Projectile>();
         bullet.Direction = (cursor.transform.position - transform.position) / RETICLE_RANGE;
+
+        if (bullet is StunProjectile)
+        {
+            bullet.target = other.transform;
+        }
 
         TrailRenderer bulletTrail = bullet.GetComponent<TrailRenderer>();
 
