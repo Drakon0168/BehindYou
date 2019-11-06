@@ -266,6 +266,11 @@ public class Player : PhysicsObject
     public void MoveInput(InputAction.CallbackContext value)
     {
         moveDirection = value.ReadValue<Vector2>();
+
+        if (stunned)
+        {
+            moveDirection = Vector2.zero;
+        }
     }
 
     /// <summary>
