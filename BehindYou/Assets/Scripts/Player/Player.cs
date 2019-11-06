@@ -24,6 +24,9 @@ public class Player : PhysicsObject
     private bool dying = false;
     private bool boosting = false;
     private float[] timers;
+
+    private Vector2 moveDirection;
+    private Vector2 aimDirection;
     
     [HideInInspector]
     public playerControls controls;
@@ -217,6 +220,9 @@ public class Player : PhysicsObject
 
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg - 90);
 
+        UpdateMovement();
+        UpdateAim();
+
         base.Update();
     }
 
@@ -225,23 +231,73 @@ public class Player : PhysicsObject
     #region Input Management
 
     /// <summary>
-    /// Handles input for player movement
+    /// Applies movement force based on the input direction
+    /// </summary>
+    private void UpdateMovement()
+    {
+        Vector2 move = (moveDirection * CurrentSpeed) - Velocity;
+        float moveDistance = move.magnitude;
+
+        if (moveDistance > 0)
+        {
+            move = (move / moveDistance) * (moveDistance / (2 * CurrentSpeed)) * maxMoveForce;
+        }
+
+        ApplyForce(move);
+    }
+
+    /// <summary>
+    /// Moves the aim reticle based on the aim direction
+    /// </summary>
+    private void UpdateAim()
+    {
+        Vector2 target = aimDirection;
+
+        if (target == Vector2.zero)
+        {
+            target = Velocity.normalized;
+        }
+
+        cursor.transform.position = Position + (target * RETICLE_RANGE);
+    }
+
+    /// <summary>
+    /// Reads input for player movement
     /// </summary>
     public void MoveInput(InputAction.CallbackContext value)
     {
-        Vector2 targetDirection = value.ReadValue<Vector2>();
+        moveDirection = value.ReadValue<Vector2>();
+    }
 
-        //Debug.Log("Movement: (" + targetDirection.x + ", " + targetDirection.y + ")");
-
-        Vector2 moveDirection = (targetDirection.normalized * CurrentSpeed) - Velocity;
-        float moveDistance = moveDirection.magnitude;
-
-        if(moveDistance > 0)
+    /// <summary>
+    /// Reads shoot button input
+    /// </summary>
+    public void ShootInput(InputAction.CallbackContext value)
+    {
+        if(StunCharge >= 1)
         {
-            moveDirection = (moveDirection / moveDistance) * (moveDistance / (2 * CurrentSpeed)) * maxMoveForce;
+            Debug.Log("Shooting!");
+            //Shoot(stunProjectile);
         }
-        
-        ApplyForce(moveDirection);
+    }
+
+    /// <summary>
+    /// Reads boost button input
+    /// </summary>
+    public void BoostInput(InputAction.CallbackContext value)
+    {
+        if(BoosterCharge >= 1)
+        {
+            Debug.Log("Boosting!");
+        }
+    }
+
+    /// <summary>
+    /// Reads grapple button input
+    /// </summary>
+    public void GrappleInput(InputAction.CallbackContext value)
+    {
+        Debug.Log("Shooting grappling hook");
     }
 
     /// <summary>
@@ -249,16 +305,14 @@ public class Player : PhysicsObject
     /// </summary>
     public void AimInput(InputAction.CallbackContext value)
     {
-        Vector2 aimDirection = value.ReadValue<Vector2>();
+        aimDirection = value.ReadValue<Vector2>();
 
-        if(aimDirection == Vector2.zero)
+        //Debug.Log("Controller: " + value.control.device.displayName);
+
+        if(value.control.device.name == "Mouse")
         {
-            aimDirection = Velocity;
+            aimDirection = (aimDirection - (Vector2)Camera.main.WorldToScreenPoint(Position)).normalized;
         }
-
-        aimDirection = aimDirection.normalized;
-
-        cursor.transform.position = Position + (aimDirection * RETICLE_RANGE);
     }
 
     #endregion
