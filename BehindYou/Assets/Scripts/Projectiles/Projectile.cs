@@ -59,8 +59,6 @@ public class Projectile : PhysicsObject
 
     private void SeekTarget(Vector2 targetDirection)
     {
-        Debug.Log("Seeking " + target.name);
-
         Vector2 targetVelocity = targetDirection * flightSpeed;
 
         Vector2 force = targetVelocity - Velocity;
@@ -68,7 +66,7 @@ public class Projectile : PhysicsObject
 
         if (forceDistance > 0)
         {
-            force = (force / forceDistance) * (forceDistance / (2 * seekDistance)) * seekForce;
+            force = (force / forceDistance) * (forceDistance / (2 * flightSpeed)) * seekForce;
         }
 
         ApplyForce(force);

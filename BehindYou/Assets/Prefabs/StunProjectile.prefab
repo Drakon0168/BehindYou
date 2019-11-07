@@ -85,8 +85,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flightSpeed: 50
   lifeTime: 5
-  seekForce: 150
-  seekDistance: 2.5
+  seekForce: 250
+  seekDistance: 5
   target: {fileID: 0}
   stunDuration: 2
 --- !u!96 &5898348191821994409
