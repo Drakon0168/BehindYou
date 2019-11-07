@@ -48,6 +48,11 @@ public class Projectile : PhysicsObject
         {
             SeekTarget(distance.normalized);
         }
+        else if(Velocity.magnitude != flightSpeed)
+        {
+            Vector2 targetVelocity = Velocity.normalized * flightSpeed;
+            ApplyForce(targetVelocity - Velocity);
+        }
 
         base.Update();
     }
