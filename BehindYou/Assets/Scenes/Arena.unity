@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,10 +128,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1014247325077103881, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+    - target: {fileID: 431060473724234628, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
-      propertyPath: m_Name
-      value: Managers
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1014247325077103880, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
@@ -187,55 +188,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 431060473724234628, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+    - target: {fileID: 1014247325077103881, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_Name
+      value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261485936774748214, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934851173988910845, guid: 02b6c7440e905dd4cb957b8a7513a02d,
-        type: 3}
-      propertyPath: m_VertexStreams.Array.data[2]
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2944141556166653851, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
       propertyPath: m_DefaultControlScheme
       value: Gamepad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491887549690802535, guid: 02b6c7440e905dd4cb957b8a7513a02d,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9094266697022029825, guid: 02b6c7440e905dd4cb957b8a7513a02d,
         type: 3}
